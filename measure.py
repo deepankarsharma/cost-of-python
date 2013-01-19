@@ -3,6 +3,7 @@ import math
 import time
 import timeit
 import pickle
+import random
 import platform
 import threading
 from math import log
@@ -27,9 +28,10 @@ snippets = [
     ('set()', 10**6, None),
     ('frozenset()', 10**6, None),
     ('d["foo"]', 10**3, 'd={"foo" : 1}'),
-    ('alist[1000]', 10**3, 'alist=range(10**5)'),
-    ('data[1000]', 10**3, 'data=range(10**5)'),
+    ('sorted(data)', 10**3, 'data=[random.randint(0, 10**4) for i in xrange(10**4)]'),
     ('list(data)', 10, 'data=range(10**6)'),
+    ('alist[1000]', 10**3, 'alist=range(10**5)'),
+    ('atuple[1000]', 10**3, 'atuple=tuple(range(10**5))'),
     ('[x for x in data]', 10, 'data=range(10**6)'),
     ('tuple(data)', 10, 'data=range(10**6)'),
     ('foo()', 10**6, 'def foo(): pass'),
